@@ -128,9 +128,16 @@
                 <textarea id="content" placeholder="내용" required></textarea>
                 <input type="file" id="imageUpload" accept="image/*" multiple>
                 <div id="imagePreviewContainer"></div>
-                <button type="submit">글쓰기</button>
+                <!-- <button type="submit" id="goToKor">글쓰기</button> -->
             </form>
             <div id="message"></div>
+            <select>
+                <option>한국</option>
+                <option>중국</option>
+                <option>일본</option>
+                <option>필리핀</option>
+              </select>
+            <a href="korea.html"><button id="goToKor">글쓰기</button></a>
         </div>
     </section>
 
@@ -254,6 +261,12 @@
             document.getElementById('message').textContent = '글이 성공적으로 저장되었습니다.';
 
             resetForm();
+
+            const goToKor = document.getElementById('goToKor');
+            goToKor.addEventListener('click', function () {
+                var url = "korea.html";
+                window.location.href = url;
+            });
         }
     </script>
 </body>
