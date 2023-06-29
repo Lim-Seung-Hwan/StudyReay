@@ -191,6 +191,7 @@ header {
     width: auto;
     line-height: 80px;
     align-items: flex-end;
+    padding-left: 40px;
 }
 
 .logo a img {

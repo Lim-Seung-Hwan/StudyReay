@@ -7,7 +7,8 @@
     <title>korea</title>
     <link rel="stylesheet" href="./css/style.css">
     <style>
-        #map {
+         #map {
+            z-index: 9999;
             width: 100%;
             height: 100%;
             position: relative;
@@ -33,6 +34,7 @@
             margin-left: auto;
             margin-right: auto;
         }
+        
     </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
@@ -40,7 +42,8 @@
 </head>
 
 <body>
-    <section class="modal-bg hidden">
+    
+    <section class="modal-bg hidden" style="z-index: 9999;">
         <div class="modal-white">
             <div class="user-info">
                 <img src="data/user_img/korea_profile.png">
@@ -72,6 +75,7 @@
         </div>
     </section>
     <!-- 헤더 -->
+    
     <header>
         <div class="logo" style="margin-right: 1000px;">
             <a href="main.html"><img src="./image/page_logo.png" alt="logo" ></a>
@@ -99,12 +103,41 @@
             <a href="" class="link">About</a>
         </div>
     </nav>
-    <div>
+    <div id = mapp>
+    
         <div id="title">KOREA</div>
-        <img src="/image/img_korea_01.png">
+        <img  src="/image/img_korea_01.png">
         <div class="marker" id="popup">📌</div>
+        
+    
+    
     </div>
 
-    <script src="./js/zoomed_page.js"></script>
+    
+
+    <script src="./js/zoomed_page.js"></script> 
+    <script>
+        var mapp = document.getElementById('mapp');
+        
+        mapp.addEventListener('click', function(event) {
+            if (event.target.classList.contains('marker')) {
+                return; // Do nothing if the clicked element is a marker
+            }
+            
+            var x = event.clientX - mapp.offsetLeft;
+            var y = event.clientY - mapp.offsetTop;
+        
+            var marker = document.createElement('div');
+            marker.className = 'marker';
+            marker.style.left = x + 'px';
+            marker.style.top = (y+85) + 'px';
+            marker.innerText = '📌';
+        
+            mapp.appendChild(marker);
+        });
+    </script>
+    
+    
+</body>
 
 </html>
