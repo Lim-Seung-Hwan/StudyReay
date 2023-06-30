@@ -225,7 +225,7 @@
 
                 reader.onload = function (e) {
                     const previewElement = document.createElement('img');
-                    previewElement.src = e.target.result;
+                    previewElement.src = "./"+e.target.result;
                     previewElement.classList.add('small-preview');
                     imagePreviewContainer.appendChild(previewElement);
                 };
@@ -264,7 +264,7 @@
 
             const goToKor = document.getElementById('goToKor');
             goToKor.addEventListener('click', function () {
-                var url = "korea.html";
+                var url = "./korea.html";
                 window.location.href = url;
             });
         }
